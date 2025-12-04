@@ -1,28 +1,59 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
+# ----------------------------------------------------------------
+# Dart Analyzer Options
+# ----------------------------------------------------------------
+# This file configures the analyzer to check for errors, warnings,
+# and lints in your Dart and Flutter code.
 #
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
+# The analyzer helps catch mistakes early and enforces coding
+# standards. You can run it via:
+#   flutter analyze
+# in your terminal, or through your IDE.
 
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
+# ----------------------------------------------------------------
+# Recommended Flutter lints
+# ----------------------------------------------------------------
+# Includes a set of rules designed to encourage good coding practices
+# for Flutter apps, packages, and plugins.
 include: package:flutter_lints/flutter.yaml
 
+# ----------------------------------------------------------------
+# Custom lint rules
+# ----------------------------------------------------------------
 linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # Enforce use of const constructors where possible
+    always_use_const: true
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+    # Warn when variables could be final
+    prefer_final_locals: true
+    prefer_final_parameters: true
+
+    # Enforce constant literals
+    prefer_const_literals_to_create_immutables: true
+
+    # Warn about missing return types
+    always_specify_types: true
+
+    # Require explicit const for widgets and other objects
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+
+    # Avoid unnecessary code or errors
+    avoid_print: false          # Optional: allow print for debugging
+    avoid_unused_constructor_parameters: true
+    avoid_unused_parameters: true
+    avoid_shadowing_type_parameters: true
+
+    # Additional Flutter specific rules
+    use_key_in_widget_constructors: true
+    no_duplicate_case_values: true
+    avoid_dynamic_calls: true
+
+# ----------------------------------------------------------------
+# Notes:
+# 1. Individual rules can be suppressed in code using:
+#      // ignore: rule_name
+#      // ignore_for_file: rule_name
+# 2. A full list of available Dart lints is available at:
+#    https://dart.dev/tools/lints
+# ----------------------------------------------------------------
