@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_structure/core/router/routes.dart';
 
 import 'core/router/app_router.dart';
-
 
 class KApp extends StatelessWidget {
   const KApp({super.key, required this.appRouter});
@@ -20,7 +20,7 @@ class KApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          // initialRoute: Routes.initialScreen,
+          initialRoute: Routes.appScreen,
           onGenerateRoute: appRouter.generateRoute,
           title: 'App Title',
           theme: ThemeData(
