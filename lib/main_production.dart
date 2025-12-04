@@ -10,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
-  setupGetIt();
+  await setupGetIt();
   await ScreenUtil.ensureScreenSize();
   runApp(
     EasyLocalization(
