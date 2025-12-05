@@ -1,17 +1,18 @@
 import 'package:dio/dio.dart';
+
 import '../models/app_error.dart';
 import '../models/error_details.dart';
 import '../types/error_type.dart';
 
 class DioErrorHandler {
-  static AppError handle(dynamic error) {
+  static AppError handle(final dynamic error) {
     if (error is DioException) {
       return _handleDioException(error);
     }
     return AppError.unknown(error.toString());
   }
 
-  static AppError _handleDioException(DioException error) {
+  static AppError _handleDioException(final DioException error) {
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
@@ -51,14 +52,14 @@ class DioErrorHandler {
     }
   }
 
-  static AppError _handleBadResponse(DioException error) {
-    final response = error.response;
-    final statusCode = response?.statusCode;
+  static AppError _handleBadResponse(final DioException error) {
+    final Response? response = error.response;
+    final int? statusCode = response?.statusCode;
     final data = response?.data;
 
     // Try to extract error message from response
-    String message = _extractErrorMessage(data);
-    ErrorDetails? details = _extractErrorDetails(data);
+    final String message = _extractErrorMessage(data);
+    final ErrorDetails? details = _extractErrorDetails(data);
 
     switch (statusCode) {
       case 400:
@@ -145,7 +146,7 @@ class DioErrorHandler {
     }
   }
 
-  static AppError _handleUnknownError(DioException error) {
+  static AppError _handleUnknownError(final DioException error) {
     // Check if it's a network error
     if (error.error.toString().toLowerCase().contains('socket') ||
         error.error.toString().toLowerCase().contains('network')) {
@@ -161,7 +162,7 @@ class DioErrorHandler {
     );
   }
 
-  static String _extractErrorMessage(dynamic data) {
+  static String _extractErrorMessage(final dynamic data) {
     if (data == null) return '';
 
     try {
@@ -196,13 +197,15 @@ class DioErrorHandler {
     return '';
   }
 
-  static ErrorDetails? _extractErrorDetails(dynamic data) {
+  static ErrorDetails? _extractErrorDetails(final dynamic data) {
     if (data == null || data is! Map<String, dynamic>) return null;
 
     try {
       // Try to extract validation errors or additional details
       if (data['errors'] != null) {
-        return ErrorDetails(metadata: {'errors': data['errors']});
+        return ErrorDetails(
+          metadata: <String, dynamic>{'errors': data['errors']},
+        );
       }
       if (data['data'] != null && data['data'] is Map) {
         return ErrorDetails.fromJson(data['data']);

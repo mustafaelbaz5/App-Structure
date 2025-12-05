@@ -1,12 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 import '../models/app_error.dart';
 import '../types/error_type.dart';
 
 class FirebaseErrorHandler {
-  static AppError handle(dynamic error) {
+  static AppError handle(final dynamic error) {
     if (error is FirebaseAuthException) {
       return _handleAuthException(error);
     }
@@ -19,7 +17,7 @@ class FirebaseErrorHandler {
   }
 
   // Handle Firebase Auth Errors
-  static AppError _handleAuthException(FirebaseAuthException error) {
+  static AppError _handleAuthException(final FirebaseAuthException error) {
     switch (error.code) {
       // Email/Password errors
       case 'invalid-email':
@@ -135,7 +133,7 @@ class FirebaseErrorHandler {
   }
 
   // Handle Firestore and Storage Errors
-  static AppError _handleFirebaseException(FirebaseException error) {
+  static AppError _handleFirebaseException(final FirebaseException error) {
     // Check if it's a Firestore error
     if (error.plugin == 'cloud_firestore') {
       return _handleFirestoreError(error);
@@ -189,7 +187,7 @@ class FirebaseErrorHandler {
     }
   }
 
-  static AppError _handleFirestoreError(FirebaseException error) {
+  static AppError _handleFirestoreError(final FirebaseException error) {
     switch (error.code) {
       case 'not-found':
         return AppError(
@@ -256,7 +254,7 @@ class FirebaseErrorHandler {
     }
   }
 
-  static AppError _handleStorageError(FirebaseException error) {
+  static AppError _handleStorageError(final FirebaseException error) {
     switch (error.code) {
       case 'object-not-found':
       case 'bucket-not-found':

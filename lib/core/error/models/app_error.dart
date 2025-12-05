@@ -51,7 +51,7 @@ class AppError implements Exception {
     );
   }
 
-  factory AppError.unknown([String? message]) {
+  factory AppError.unknown([final String? message]) {
     return AppError(
       message: message ?? 'errors.unknown',
       type: ErrorType.unknown,

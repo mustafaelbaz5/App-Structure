@@ -5,7 +5,7 @@ import '../types/error_type.dart';
 
 class SupabaseErrorHandler {
   /// Main handler: convert any Supabase or generic exception into AppError
-  static AppError handle(dynamic error) {
+  static AppError handle(final dynamic error) {
     if (error is AuthException) {
       return _handleAuthException(error);
     } else if (error is PostgrestException) {
@@ -23,9 +23,9 @@ class SupabaseErrorHandler {
   // =========================
   // Auth Error Handling
   // =========================
-  static AppError _handleAuthException(AuthException error) {
-    final message = error.message.toLowerCase();
-    final statusCode = error.statusCode != null
+  static AppError _handleAuthException(final AuthException error) {
+    final String message = error.message.toLowerCase();
+    final int? statusCode = error.statusCode != null
         ? int.tryParse(error.statusCode!)
         : null;
 
@@ -141,9 +141,9 @@ class SupabaseErrorHandler {
   // =========================
   // Database Error Handling
   // =========================
-  static AppError _handlePostgrestException(PostgrestException error) {
-    final message = error.message.toLowerCase();
-    final code = error.code ?? '';
+  static AppError _handlePostgrestException(final PostgrestException error) {
+    final String message = error.message.toLowerCase();
+    final String code = error.code ?? '';
 
     if (code == 'PGRST116' || message.contains('not found')) {
       return AppError(
@@ -187,9 +187,9 @@ class SupabaseErrorHandler {
   // =========================
   // Storage Error Handling
   // =========================
-  static AppError _handleStorageException(StorageException error) {
-    final message = error.message.toLowerCase();
-    final statusCode = int.tryParse(error.statusCode ?? '') ?? 0;
+  static AppError _handleStorageException(final StorageException error) {
+    final String message = error.message.toLowerCase();
+    final int statusCode = int.tryParse(error.statusCode ?? '') ?? 0;
 
     if (statusCode == 404 || message.contains('not found')) {
       return AppError(
@@ -235,8 +235,8 @@ class SupabaseErrorHandler {
   // =========================
   // Generic Exception Handling
   // =========================
-  static AppError _handleGenericException(Exception error) {
-    final message = error.toString().toLowerCase();
+  static AppError _handleGenericException(final Exception error) {
+    final String message = error.toString().toLowerCase();
 
     if (message.contains('socket') || message.contains('network')) {
       return AppError.noInternet();

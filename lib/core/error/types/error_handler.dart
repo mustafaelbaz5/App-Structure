@@ -9,7 +9,7 @@ import '../models/app_error.dart';
 
 class ErrorHandler {
   /// Handle any error and convert it to AppError
-  static AppError handle(dynamic error) {
+  static AppError handle(final dynamic error) {
     // Handle AppError (already processed)
     if (error is AppError) {
       return error;
@@ -40,14 +40,14 @@ class ErrorHandler {
   }
 
   /// Check if the error is a Supabase-related error
-  static bool _isSupabaseError(dynamic error) {
+  static bool _isSupabaseError(final dynamic error) {
     return error is AuthException || // general auth errors
         error is PostgrestException ||
         error is StorageException;
   }
 
   /// Check if the error is a Firebase-related error
-  static bool _isFirebaseError(dynamic error) {
+  static bool _isFirebaseError(final dynamic error) {
     return error is FirebaseAuthException || error is FirebaseException;
   }
 }

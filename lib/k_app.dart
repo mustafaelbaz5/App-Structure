@@ -11,7 +11,7 @@ class KApp extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return ScreenUtilInit(
-      // designSize: const Size(390, 844),
+      // designSize: const Size(w, h),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (final BuildContext context, final Widget? child) {
