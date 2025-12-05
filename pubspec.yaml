@@ -32,6 +32,9 @@ dependencies:
   # Responsive layout for multiple screen sizes
   flutter_screenutil: ^5.9.3
 
+  # Splash screen for the app
+  flutter_native_splash: ^2.4.7
+
   # Secure local storage
   flutter_secure_storage: ^9.2.4
 
@@ -64,9 +67,10 @@ flutter:
 
   # Assets included in the build
   assets:
-    - assets/images/          # Image assets
-    - assets/svgs/            # SVG assets
-    - assets/translations/    # Localization files
+    - assets/images/ # Image assets
+    - assets/svgs/ # SVG assets
+    - assets/translations/ # Localization files
+
 
   # Fonts (example template commented out)
   # fonts:
@@ -80,7 +84,6 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-
 # For more info on assets and fonts:
 # - Assets: https://flutter.dev/docs/development/ui/assets-and-images
 # - Fonts: https://flutter.dev/docs/cookbook/design/fonts
