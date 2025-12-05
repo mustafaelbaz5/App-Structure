@@ -4,7 +4,7 @@ class AppScreen extends StatelessWidget {
   const AppScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Flutter Structure")));
+  Widget build(final BuildContext context) {
+    return const Scaffold(body: Center(child: Text("Flutter Structure")));
   }
 }

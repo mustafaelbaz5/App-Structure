@@ -9,12 +9,12 @@ class KApp extends StatelessWidget {
   const KApp({super.key, required this.appRouter});
   final AppRouter appRouter;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ScreenUtilInit(
       // designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) {
+      builder: (final BuildContext context, final Widget? child) {
         return MaterialApp(
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,

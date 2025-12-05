@@ -1,59 +1,40 @@
 # ----------------------------------------------------------------
-# Dart Analyzer Options
+# Dart Analyzer Options - Performance & Const Focused
 # ----------------------------------------------------------------
-# This file configures the analyzer to check for errors, warnings,
-# and lints in your Dart and Flutter code.
-#
-# The analyzer helps catch mistakes early and enforces coding
-# standards. You can run it via:
+# This configuration enforces best practices in Dart & Flutter.
+# It actively encourages using const, immutables, and clean code.
+# Run analysis via:
 #   flutter analyze
-# in your terminal, or through your IDE.
+# ----------------------------------------------------------------
 
-# ----------------------------------------------------------------
-# Recommended Flutter lints
-# ----------------------------------------------------------------
-# Includes a set of rules designed to encourage good coding practices
-# for Flutter apps, packages, and plugins.
 include: package:flutter_lints/flutter.yaml
 
-# ----------------------------------------------------------------
-# Custom lint rules
-# ----------------------------------------------------------------
 linter:
   rules:
-    # Enforce use of const constructors where possible
-    always_use_const: true
-
-    # Warn when variables could be final
+    # --------------------------------------
+    # Const & immutables
+    # --------------------------------------
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_literals_to_create_immutables: true
     prefer_final_locals: true
     prefer_final_parameters: true
 
-    # Enforce constant literals
-    prefer_const_literals_to_create_immutables: true
-
-    # Warn about missing return types
+    # --------------------------------------
+    # Explicit types & clarity
+    # --------------------------------------
     always_specify_types: true
 
-    # Require explicit const for widgets and other objects
-    prefer_const_constructors: true
-    prefer_const_constructors_in_immutables: true
-
-    # Avoid unnecessary code or errors
-    avoid_print: false          # Optional: allow print for debugging
-    avoid_unused_constructor_parameters: true
-    avoid_unused_parameters: true
-    avoid_shadowing_type_parameters: true
-
-    # Additional Flutter specific rules
+    # --------------------------------------
+    # Flutter best practices
+    # --------------------------------------
     use_key_in_widget_constructors: true
-    no_duplicate_case_values: true
     avoid_dynamic_calls: true
 
 # ----------------------------------------------------------------
 # Notes:
-# 1. Individual rules can be suppressed in code using:
+# 1. Suppress specific rules in code with:
 #      // ignore: rule_name
 #      // ignore_for_file: rule_name
-# 2. A full list of available Dart lints is available at:
-#    https://dart.dev/tools/lints
+# 2. Full list of Dart lints: https://dart.dev/tools/lints
 # ----------------------------------------------------------------
