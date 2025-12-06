@@ -1,3 +1,5 @@
+// ignore_for_file: always_specify_types, avoid_dynamic_calls
+
 import 'package:dio/dio.dart';
 
 import '../models/app_error.dart';
