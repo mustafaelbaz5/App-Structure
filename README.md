@@ -51,6 +51,8 @@ If you want to start with a clean commit history and push only your current file
 ```bash
 # Step 1: Remove the existing Git history
 rm -rf .git
+  # Or In cmd
+rmdir /s /q .git
 
 # Step 2: Initialize a new Git repository
 git init
