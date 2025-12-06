@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_structure/core/router/routes.dart';
 
 import 'core/router/app_router.dart';
+import 'core/router/routes.dart';
 
 class KApp extends StatelessWidget {
   const KApp({super.key, required this.appRouter});
