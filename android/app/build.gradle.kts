@@ -1,8 +1,7 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    // Flutter Gradle Plugin must come after Android and Kotlin plugins
-    id 'dev.flutter.flutter-gradle-plugin'
+    id("com.android.application")
+    id("kotlin-android")
+    id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
@@ -29,24 +28,22 @@ android {
 
     buildTypes {
         release {
-            // Signing config (debug for now, replace with release config later)
             signingConfig = signingConfigs.getByName("debug")
         }
-        debug {
-            // Optional: debug-specific settings
-        }
+        debug { }
     }
 
     flavorDimensions += "default"
+
     productFlavors {
-        development {
+        create("development") {
             dimension = "default"
-            resValue "string", "app_name", "K Development"
+            resValue("string", "app_name", "K Development")
             applicationIdSuffix = ".development"
         }
-        production {
+        create("production") {
             dimension = "default"
-            resValue "string", "app_name", "K Production"
+            resValue("string", "app_name", "K Production")
             applicationIdSuffix = ".production"
         }
     }
