@@ -23,4 +23,3 @@ void main() async {
   );
 }
 
-// flutter run --release --flavor development --target lib/main_development.dart
