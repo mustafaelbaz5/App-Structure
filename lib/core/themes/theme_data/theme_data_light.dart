@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_structure/core/extensions/context_extensions.dart';
-import 'package:flutter_structure/core/themes/app_colors.dart';
-import 'package:flutter_structure/core/themes/app_text_styles.dart';
+import '../../extensions/context_extensions.dart';
+import '../app_colors.dart';
+import '../app_text_styles.dart';
 
 ThemeData getLightTheme({required final BuildContext context}) {
   return ThemeData(

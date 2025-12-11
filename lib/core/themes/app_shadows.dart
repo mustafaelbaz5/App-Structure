@@ -1,5 +1,6 @@
 import 'package:flutter/rendering.dart';
-import 'package:flutter_structure/core/themes/app_colors.dart';
+
+import 'app_colors.dart';
 
 class AppShadows {
   const AppShadows._();

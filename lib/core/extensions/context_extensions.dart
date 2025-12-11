@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_structure/core/themes/app_font_family.dart';
+
+import '../themes/app_font_family.dart';
 
 /// Navigation Extensions
 extension NavigationExt on BuildContext {
