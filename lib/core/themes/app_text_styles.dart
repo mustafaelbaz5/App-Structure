@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_structure/core/themes/app_font_family.dart';
 
 import 'app_colors.dart';
 import 'app_font_weight.dart';
 
 class AppTextStyles {
-  // Black
-  static TextStyle font32BlackBold() => GoogleFonts.tajawal(
-    fontSize: 32.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: AppColors.colorName,
+  const AppTextStyles._();
+  static const TextStyle font32ManropeBlackBold = TextStyle(
+    fontSize: 32,
+    fontFamily: AppFontFamily.manrope,
+    fontWeight: AppFontWeight.bold,
+    color: AppColors.grey900,
+  );
+  static const TextStyle font16ManropeBlackRegular = TextStyle(
+    fontSize: 16,
+    fontFamily: AppFontFamily.manrope,
+    fontWeight: AppFontWeight.regular,
+    color: AppColors.grey900,
   );
 }
