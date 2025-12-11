@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../extensions/context_extensions.dart';
 import '../app_colors.dart';
 import '../app_text_styles.dart';
@@ -7,7 +8,6 @@ ThemeData getDarkTheme({required final BuildContext context}) {
   return ThemeData(
     scaffoldBackgroundColor: AppColors.grey900,
     brightness: Brightness.dark,
-    fontFamily: context.currentFont,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primary300,
       brightness: Brightness.dark,
@@ -15,6 +15,7 @@ ThemeData getDarkTheme({required final BuildContext context}) {
     textTheme: ThemeData.light().textTheme.apply(
       bodyColor: AppColors.grey0,
       displayColor: AppColors.grey0,
+      fontFamily: context.currentFont,
     ),
 
     // Changed By the App General Theme
