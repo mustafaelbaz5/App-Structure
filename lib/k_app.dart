@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_structure/core/extensions/context_extensions.dart';
 import 'package:flutter_structure/core/themes/cubit/theme_cubit.dart';
 import 'package:flutter_structure/core/themes/theme_data/theme_data_dark.dart';
 import 'package:flutter_structure/core/themes/theme_data/theme_data_light.dart';
@@ -14,6 +15,7 @@ class KApp extends StatelessWidget {
   final AppRouter appRouter;
   @override
   Widget build(final BuildContext context) {
+    final String fontFamily = context.currentFont;
     return ScreenUtilInit(
       // designSize: const Size(w, h),
       minTextAdapt: true,
@@ -32,8 +34,8 @@ class KApp extends StatelessWidget {
                 initialRoute: Routes.appScreen,
                 onGenerateRoute: appRouter.generateRoute,
                 title: 'App Title',
-                theme: getLightTheme(),
-                darkTheme: getDarkTheme(),
+                theme: getLightTheme(fontFamily: fontFamily),
+                darkTheme: getDarkTheme(fontFamily: fontFamily),
                 themeMode: mode,
               );
             },

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_structure/core/themes/app_colors.dart';
-import 'package:flutter_structure/core/themes/app_font_family.dart';
 import 'package:flutter_structure/core/themes/app_text_styles.dart';
 
-ThemeData getDarkTheme() {
+ThemeData getDarkTheme({required final String fontFamily}) {
   return ThemeData(
     scaffoldBackgroundColor: AppColors.grey900,
     brightness: Brightness.dark,
-    fontFamily: AppFontFamily.manrope,
+    fontFamily: fontFamily,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primary300,
       brightness: Brightness.dark,
@@ -25,7 +24,7 @@ ThemeData getDarkTheme() {
         disabledBackgroundColor: AppColors.grey800,
         disabledForegroundColor: AppColors.grey400,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: AppTextStyles.font32ManropeBold,
+        textStyle: AppTextStyles.font32Bold,
       ),
     ),
 
@@ -49,9 +48,7 @@ ThemeData getDarkTheme() {
         return AppColors.grey800;
       }),
       filled: true,
-      hintStyle: AppTextStyles.font16ManropeRegular.copyWith(
-        color: AppColors.grey400,
-      ),
+      hintStyle: AppTextStyles.font16Regular.copyWith(color: AppColors.grey400),
     ),
   );
 }
