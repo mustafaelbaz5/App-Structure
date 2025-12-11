@@ -25,7 +25,7 @@ ThemeData getDarkTheme() {
         disabledBackgroundColor: AppColors.grey800,
         disabledForegroundColor: AppColors.grey400,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: AppTextStyles.font32ManropeBlackBold,
+        textStyle: AppTextStyles.font32ManropeBold,
       ),
     ),
 
@@ -49,7 +49,7 @@ ThemeData getDarkTheme() {
         return AppColors.grey800;
       }),
       filled: true,
-      hintStyle: AppTextStyles.font16ManropeBlackRegular.copyWith(
+      hintStyle: AppTextStyles.font16ManropeRegular.copyWith(
         color: AppColors.grey400,
       ),
     ),
