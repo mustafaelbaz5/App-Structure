@@ -1,6 +1,6 @@
-// ignore_for_file: always_use_package_imports
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_structure/core/themes/app_font_family.dart';
 
 /// Navigation Extensions
 extension NavigationExt on BuildContext {
@@ -91,11 +91,18 @@ extension ThemeExt on BuildContext {
 /// Locale Extensions
 extension LocaleExt on BuildContext {
   /// Check if current locale is Arabic
-  bool get isArabic => Localizations.localeOf(this).languageCode == 'ar';
+  bool get isArabic => EasyLocalization.of(this)!.locale.languageCode == 'ar';
 
   /// Get current locale
-  Locale get localeLanguage => Localizations.localeOf(this);
+  Locale get localeLanguage => EasyLocalization.of(this)!.locale;
 
   /// Check if RTL language
-  bool get isRTL => Directionality.of(this) == TextDirection.rtl;
+  bool get isRTL => isArabic;
+}
+
+extension AppFontsExtension on BuildContext {
+  String get currentFont {
+    // If Arabic, use Tajawal; otherwise, Manrope
+    return isArabic ? AppFontFamily.tajawal : AppFontFamily.manrope;
+  }
 }
