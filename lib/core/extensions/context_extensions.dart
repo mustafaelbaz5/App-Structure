@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_structure/core/themes/custom_colors.dart';
 
 import '../themes/app_font_family.dart';
 
@@ -87,6 +88,9 @@ extension ThemeExt on BuildContext {
 
   /// Access color scheme quickly
   ColorScheme get colors => Theme.of(this).colorScheme;
+
+  /// Access custom colors quickly
+  CustomColors get customColors => Theme.of(this).customColors;
 }
 
 /// Locale Extensions
